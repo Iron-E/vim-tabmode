@@ -1,66 +1,66 @@
-if exists('g:loaded_win')
+if exists('g:loaded_tabmode')
   finish
 endif
-let g:loaded_win = 1
+let g:loaded_tabmode = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !hasmapto('<plug>WinWin')
-  silent! map <unique> <leader>w <plug>WinWin
+if !hasmapto('<plug>TabmodeTabmode')
+  silent! map <unique> <leader>w <plug>TabmodeTabmode
 endif
-noremap <unique> <silent> <script> <plug>WinWin <sid>Win
-noremap <sid>Win :<c-u>call win#Win()<cr>
+noremap <unique> <silent> <script> <plug>TabmodeTabmode <sid>Tabmode
+noremap <sid>Tabmode :<c-u>call tabmode#tabmode()<cr>
 
-if !exists(':Win')
-  command -nargs=* Win :call win#Win(<f-args>)
+if !exists(':Tabmode')
+  command -nargs=* Tabmode :call tabmode#tabmode(<f-args>)
 endif
 
 " ************************************************************
 " * User Configuration
 " ************************************************************
 
-let g:win_resize_height = get(g:, 'win_resize_height', 2)
-let g:win_resize_width = get(g:, 'win_resize_width', 2)
-let g:win_disable_version_warning = get(g:, 'win_disable_version_warning', 0)
-" g:win_ext_command_map allows additional commands to be added to win.vim. It
+let g:tabmode_resize_height = get(g:, 'tabmode_resize_height', 2)
+let g:tabmode_resize_width = get(g:, 'tabmode_resize_width', 2)
+let g:tabmode_disable_version_warning = get(g:, 'tabmode_disable_version_warning', 0)
+" g:tabmode_ext_command_map allows additional commands to be added to tabmode.vim. It
 " maps command keys to command strings. These will override the built-in
-" vim-win commands that use the same keys, except for 1) <esc>, which is used
-" for exiting, and 2) ?, which is used for help. The 'Win#exit' string can be
-" used as a command string for exiting vim-win.
+" vim-tabmode commands that use the same keys, except for 1) <esc>, which is used
+" for exiting, and 2) ?, which is used for help. The 'Tabmode#exit' string can be
+" used as a command string for exiting vim-tabmode.
 " E.g.,
-" :let g:win_ext_command_map = {
-"        \   'c': 'wincmd c',
+" :let g:tabmode_ext_command_map = {
+"        \   'c': 'tabmodecmd c',
 "        \   'C': 'close!',
 "        \   'q': 'quit',
 "        \   'Q': 'quit!',
 "        \   '!': 'qall!',
-"        \   'V': 'wincmd v',
-"        \   'S': 'wincmd s',
+"        \   'V': 'tabmodecmd v',
+"        \   'S': 'tabmodecmd s',
 "        \   'n': 'bnext',
 "        \   'N': 'bnext!',
 "        \   'p': 'bprevious',
 "        \   'P': 'bprevious!',
 "        \   "\<c-n>": 'tabnext',
 "        \   "\<c-p>": 'tabprevious',
-"        \   '=': 'wincmd =',
+"        \   '=': 'tabmodecmd =',
 "        \   't': 'tabnew',
-"        \   'x': 'Win#exit'
+"        \   'x': 'Tabmode#exit'
 "        \ }
-let g:win_ext_command_map = get(g:, 'win_ext_command_map', {})
+let g:tabmode_ext_command_map = get(g:, 'tabmode_ext_command_map', {})
 
 " The default highlight groups (for colors) are specified below.
 " Change these default colors by defining or linking the corresponding
 " highlight group.
-" E.g., the following will use the Error highlight for the active window.
-" :highlight link WinActive Error
-" E.g., the following will use custom highlight colors for the inactive windows.
-" :highlight WinInactive term=bold ctermfg=12 ctermbg=159 guifg=Blue guibg=LightCyan
-highlight default link WinActive DiffAdd
-highlight default link WinInactive Todo
-highlight default link WinNeighbor Todo
-highlight default link WinStar StatusLine
-highlight default link WinPrompt ModeMsg
+" E.g., the follotabmodeg will use the Error highlight for the active tabmodedow.
+" :highlight link TabmodeActive Error
+" E.g., the follotabmodeg will use custom highlight colors for the inactive tabmodedows.
+" :highlight TabmodeInactive term=bold ctermfg=12 ctermbg=159 guifg=Blue guibg=LightCyan
+highlight default link TabmodeActive DiffAdd
+highlight default link TabmodeInactive Todo
+highlight default link TabmodeNeighbor Todo
+highlight default link TabmodeStar StatusLine
+highlight default link TabmodePrompt ModeMsg
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
