@@ -1,21 +1,24 @@
-*win.txt*          Plugin for managing windows
-*vim-win*
+*tabmode.txt*          Plugin for managing tabs
+*vim-tabmode*
 
-Author: Daniel Steinberg - https://www.dannyadam.com
-Web: https://github.com/dstein64/vim-win
+Forked From: vim-tabmode - https://github.com/dstein64/vim-tabmode
+Original Author: Daniel Steinberg - https://www.dannyadam.com
 
-1. Requirements                            |win-requirements|
-2. Installation                            |win-installation|
-3. Usage                                   |win-usage|
-4. Configuration                           |win-configuration|
+Tabmode Author: Iron_E
+Tabmode Web: https://gitlab.com/Iron_E/vim-tabmode
 
-|vim-win| is a Vim plugin for managing windows. Built-in functionality includes
+1. Requirements                            |tabmode-requirements|
+2. Installation                            |tabmode-installation|
+3. Usage                                   |tabmode-usage|
+4. Configuration                           |tabmode-configuration|
+
+|vim-tabmode| is a Vim plugin for managing windows. Built-in functionality includes
 window selection, window buffer swapping, and window resizing. The plugin is
 extensible, allowing additional functionality to be added (see
-|win-configuration| below).
+|tabmode-configuration| below).
 
 ============================================================================
-1. Requirements                            *win-requirements*
+1. Requirements                            *tabmode-requirements*
 
 * Full functionality
   - `vim>=8.2` or `nvim>=0.4.0`
@@ -23,15 +26,15 @@ extensible, allowing additional functionality to be added (see
   - `vim>=8.1.1140`
 
 ============================================================================
-2. Installation                            *win-installation*
+2. Installation                            *tabmode-installation*
 
 Use |packages| or one of the various package managers.
 
 ============================================================================
-3. Usage                                   *win-usage*
-                                                               *:Win*
-Enter |vim-win| with <leader>w or |:Win|.
-These can be customized (see |win-configuration| below).
+3. Usage                                   *tabmode-usage*
+                                                               *:Tabmode*
+Enter |vim-tabmode| with <leader>w or |:Tabmode|.
+These can be customized (see |tabmode-configuration| below).
 
 * Arrows or `hjkl` keys are used for movement.
 * There are various ways to change the active window.
@@ -44,22 +47,22 @@ These can be customized (see |win-configuration| below).
 * Press `s` or `S` followed by a movement key or window number, to swap buffers.
   - The active window changes with `s` and is retained with `S`.
 * Press `?` to show a help message.
-* Press <esc> to leave |vim-win| (or go back, where applicable).
+* Press <esc> to leave |vim-tabmode| (or go back, where applicable).
 
 ============================================================================
-4. Configuration                           *win-configuration*
+4. Configuration                           *tabmode-configuration*
 
-By default, |vim-win| is started with <leader>w or |:Win|. These will not be
-clobbered in case they are already used. The |:Win| command takes an optional
-argument specifying how many |vim-win| commands to run (e.g., `:Win 1` would
-exit |vim-win| after the first command). If the optional argument is `0`, which
-is the default, |vim-win| runs until exit.
+By default, |vim-tabmode| is started with <leader>w or |:Tabmode|. These will not be
+clobbered in case they are already used. The |:Tabmode| command takes an optional
+argument specifying how many |vim-tabmode| commands to run (e.g., `:Tabmode 1` would
+exit |vim-tabmode| after the first command). If the optional argument is `0`, which
+is the default, |vim-tabmode| runs until exit.
  >
 	" The following defaults can be customized in your .vimrc
-	map <leader>w <plug>WinWin
-	command Win :call win#Win()
+	map <leader>w <plug>TabmodeTabmode
+	command Tabmode :call win#Tabmode()
 
-The following variables can be used to customize the behavior of |vim-win|.
+The following variables can be used to customize the behavior of |vim-tabmode|.
 
 `Variable`
   Description                       `Default`
@@ -75,11 +78,11 @@ The following variables can be used to customize the behavior of |vim-win|.
   warning
 *g:win_ext_command_map*               `{}`
   A dictionary for extending
-  |vim-win|
+  |vim-tabmode|
 
-The |g:win_ext_command_map| maps |vim-win| command keys to `vim` command
-strings. The *Win#exit* string can be used as a command string for exiting
-|vim-win|.
+The |g:win_ext_command_map| maps |vim-tabmode| command keys to `vim` command
+strings. The *Tabmode#exit* string can be used as a command string for exiting
+|vim-tabmode|.
 
 The variables can be customized in your `.vimrc`, as shown in the following
 example.
@@ -103,29 +106,29 @@ example.
 	      \   "\<c-p>": 'tabprevious',
 	      \   '=': 'wincmd =',
 	      \   't': 'tabnew',
-	      \   'x': 'Win#exit'
+	      \   'x': 'Tabmode#exit'
 	      \ }
 
 Color Customization ~
-                                           *win-color-customization*
-The following highlight groups can be configured to change |vim-win|'s colors.
+                                           *tabmode-color-customization*
+The following highlight groups can be configured to change |vim-tabmode|'s colors.
 
 Name        Default    Description
 ----        -------    -----------
-`WinActive`   `ModeMsg`    Color for the header row text
-`WinInactive` `Type`       Color for sourcing event names
-`WinNeighbor` `Identifier` Color for other event names
-`WinStar`     `Directory`  Color for the time column
-`WinPrompt`   `Special`    Color for the percent column
+`TabmodeActive`   `ModeMsg`    Color for the header row text
+`TabmodeInactive` `Type`       Color for sourcing event names
+`TabmodeNeighbor` `Identifier` Color for other event names
+`TabmodeStar`     `Directory`  Color for the time column
+`TabmodePrompt`   `Special`    Color for the percent column
 
 The highlight groups can be customized in your |.vimrc|, as shown in the
 following example.
  >
-	" Link WinActive highlight to Error highlight
-	highlight link WinActive Error
+	" Link TabmodeActive highlight to Error highlight
+	highlight link TabmodeActive Error
 
-	" Specify custom highlighting for WinInactive
-	highlight WinInactive term=bold ctermfg=12 ctermbg=159 guifg=Blue guibg=LightCyan
+	" Specify custom highlighting for TabmodeInactive
+	highlight TabmodeInactive term=bold ctermfg=12 ctermbg=159 guifg=Blue guibg=LightCyan
 
 ============================================================================
  vim:tw=78:ts=4:ft=help:norl:
