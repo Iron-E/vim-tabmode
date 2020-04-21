@@ -41,7 +41,7 @@ function! s:Echo(echo_list)
 endfunction
 
 function! s:ShowHelp()
-	help vim-tabmode
+	help 'tabmode.txt'
 endfunction
 
 function! s:ShowError(message)
@@ -140,9 +140,9 @@ function! tabmode#Enter(...)
 			elseif l:char ==# '?'
 				s:ShowHelp()
 			elseif s:Contains(s:beginning, l:char)
-				execute 'tabmove 0'
+				execute 'tabfirst'
 			elseif l:char ==# '$'
-				execute 'tabmove $'
+				execute 'tablast'
 			elseif s:Contains(s:left_chars, l:char)
 				execute 'tabprevious'
 			elseif s:Contains(s:shift_left_chars, l:char)
