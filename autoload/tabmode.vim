@@ -1,5 +1,5 @@
-let s:popuptabmode = has('popuptabmode')
-let s:floattabmode = exists('*nvim_open_tabmode') && exists('*nvim_tabmode_close')
+let s:popupwin = has('popupwin')
+let s:floatwin = exists('*nvim_open_win') && exists('*nvim_win_close')
 
 let s:esc_chars = ["\<Esc>"]
 let s:left_chars = ['b', 'k', 'h', "\<Left>"]
@@ -27,30 +27,17 @@ function! s:GetChar()
 endfunction
 
 function! s:ShowHelp()
-	let l:help_lines = [
-	\	'* Arrows or hjkl keys are used for movement.',
-	\	'* There are various ways to change the active tabmodedow.',
-	\	'  - Use movement keys to move to neighboring tabmodedows.',
-	\	'  - Enter a tabmodedow number (where applicable, press <enter> to submit).',
-	\	'  - Use w or W to sequentially move to the next or previous tabmodedow.',
-	\	'* Hold <shift> and use movement keys to resize the active tabmodedow.',
-	\	'  - Left movements decrease width and right movements increase width.',
-	\	'  - Down movements decrease height and up movements increase height.',
-	\	'* Press s or S followed by a movement key or tabmodedow number, to swap buffers.',
-	\	'  - The active tabmodedow changes with s and is retained with S.',
-	\	'* Press <esc> to leave vim-tabmode (or go back, where applicable).',
-	\]
-	let l:echo_list = []
-	call add(l:echo_list, ['Title', "vim-tabmode help\n"])
-	call add(l:echo_list, ['None', join(l:help_lines, "\n")])
-	call add(l:echo_list, ['Question', "\n[Press any key to continue]"])
-	call s:Echo(l:echo_list)
-	call s:GetChar()
-	redraw | echo ''
+	help vim-tabmode
 endfunction
 
 function! s:ShowError(message)
-	help tabmode-usage
+	let l:echo_list = []
+	call add(l:echo_list, ['Title', "vim-tabmode error\n"])
+	call add(l:echo_list, ['Error', a:message])
+	call add(l:echo_list, ['Question', "\n[Press any key to return]"])
+	call s:Echo(l:echo_list)
+	call s:GetChar()
+	redraw | echo ''
 endfunction
 
 function! s:ShowWarning(message)
@@ -80,11 +67,11 @@ function! s:CheckVersion()
 		call s:ShowError(join(l:message_lines, "\n"))
 		return 0
 	endif
-	if !g:tabmode_disable_version_warning && !s:popuptabmode && !s:floattabmode
+	if !g:tabmode_disable_version_warning && !s:popupwin && !s:floatwin
 		let l:message_lines = [
-		\		'Full vim-tabmode functionality requires vim>=8.2 or nvim>=0.4.0.',
-		\		'Use :version to check the current version.',
-		\		'Set g:tabmode_disable_version_warning = 1 to disable this warning.'
+		\	'Full vim-tabmode functionality requires vim>=8.2 or nvim>=0.4.0.',
+		\	'Use :version to check the current version.',
+		\	'Set g:tabmode_disable_version_warning = 1 to disable this warning.'
 		\]
 		call s:ShowWarning(join(l:message_lines, "\n"))
 	endif
@@ -94,19 +81,19 @@ endfunction
 " Returns a state that can be used for restoration.
 function! s:Init()
 	let l:state = {
-	\	'tabmodewidth': &tabmodewidth,
-	\	'tabmodeheight': &tabmodeheight
+	\	'winwidth': &winwidth,
+	\	'winheight': &winheight
 	\}
-	" Minimize tabmodewidth and tabmodeheight so that moving around doesn't unexpectedly
-	" cause tabmodedow resizing.
-	let &tabmodewidth = max([1, &tabmodeminwidth])
-	let &tabmodeheight = max([1, &tabmodeminheight])
+	" Minimize winwidth and winheight so that moving around doesn't unexpectedly
+	" cause window resizing.
+	let &winwidth = max([1, &winminwidth])
+	let &winheight = max([1, &winminheight])
 	return l:state
 endfunction
 
 function! s:Restore(state)
-	let &tabmodewidth = a:state['tabmodewidth']
-	let &tabmodeheight = a:state['tabmodeheight']
+	let &winwidth = a:state['winwidth']
+	let &winheight = a:state['winheight']
 endfunction
 
 " Runs the vim-tabmode command prompt loop. The function takes an optional
