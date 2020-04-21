@@ -8,6 +8,10 @@ let s:shift_left_chars = ['B', 'K', 'H', "\<S-Left>"]
 let s:shift_right_chars = ['W', 'J', 'L', "\<S-Right>"]
 let s:beginning = ['^', '$']
 
+function! s:Contains(list, element)
+	return index(a:list, a:element) !=# -1
+endfunction
+
 function! s:GetChar()
 	try
 		while 1
