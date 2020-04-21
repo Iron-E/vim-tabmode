@@ -135,6 +135,7 @@ function! tabmode#Enter(...)
 			call s:Echo(l:prompt)
 			let l:char = s:GetChar()
 			let l:code = char2nr(l:char)
+			echom "CHARACTER IS " . l:char
 			if s:Contains(s:esc_chars, l:char)
 				break
 			elseif l:char ==# '?'
