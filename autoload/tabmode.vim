@@ -2,10 +2,10 @@ let s:popupwin = has('popupwin')
 let s:floatwin = exists('*nvim_open_win') && exists('*nvim_win_close')
 
 let s:esc_chars = ["\<Esc>"]
-let s:left_chars = ['b', 'k', 'h', "\<Left>"]
-let s:right_chars = ['w', 'j', 'l', "\<Right>"]
-let s:shift_left_chars = ['B', 'K', 'H', "\<S-Left>"]
-let s:shift_right_chars = ['W', 'J', 'L', "\<S-Right>"]
+let s:left_chars = ['b', 'j', 'h', "\<Left>"]
+let s:right_chars = ['w', 'k', 'l', "\<Right>"]
+let s:shift_left_chars = ['B', 'J', 'H', "\<S-Left>"]
+let s:shift_right_chars = ['W', 'K', 'L', "\<S-Right>"]
 let s:beginning = ['^', '$']
 
 function! s:Contains(list, element)
@@ -153,21 +153,17 @@ function! tabmode#Enter(...)
 				execute '+tabmove'
 			elseif l:char ==# 'a'
 				execute 'tabnew'
-				execute 'tabnext'
 			elseif l:char ==# 'A'
 				execute '$tabnew'
-				execute '$tabmove'
 			elseif l:char ==# 'i'
 				execute '-tabnew'
-				execute 'tabprevious'
 			elseif l:char ==# 'I'
 				execute '0tabnew'
-				execute '0tabmove'
 			elseif l:char ==# 'd'
 				execute 'tabclose'
 			elseif l:char ==# 's'
 				execute 'tabnew'
-				execute '-tabmove'
+				execute 'tabprevious'
 				execute 'tabclose'
 			endif
 		catch

@@ -42,8 +42,8 @@ Enter `vim-tabmode` with `<leader><Tab>` or `:TabmodeEnter`.
 | `?`         | Show help message                                |
 | `^`/`0`     | Go to the beginning of the tab list.             |
 | `$`         | Go to the end of the tab list.                   |
-| `w`/`h`/`j` | Tab left                                         |
-| `b`/`k`/`l` | Tab right                                        |
+| `b`/`j`/`h` | Tab left                                         |
+| `w`/`k`/`l` | Tab right                                        |
 | `a`         | Append a tab and switch to it.                   |
 | `A`         | Append a tab to the end and switch to it.        |
 | `i`         | Prepend a tab and switch to it.                  |
