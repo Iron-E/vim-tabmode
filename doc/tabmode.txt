@@ -30,8 +30,8 @@ Use |packages| or one of the various package managers.
 
 ============================================================================
 3. Usage                                   *tabmode-usage*
-                                                               *:Tabmode*
-Enter |vim-tabmode| with <leader><Tab> or |:Tabmode|.
+                                                               *:TabmodeEnter*
+Enter |vim-tabmode| with <leader><Tab> or |:TabmodeEnter|.
 
 Key			Use
 ---			---
@@ -51,15 +51,15 @@ Key			Use
 ============================================================================
 4. Configuration                           *tabmode-configuration*
 
-By default, |vim-tabmode| is started with <leader><Tab> or |:Tabmode|. These will not be
-clobbered in case they are already used. The |:Tabmode| command takes an optional
-argument specifying how many |vim-tabmode| commands to run (e.g., `:Tabmode 1` would
+By default, |vim-tabmode| is started with <leader><Tab> or |:TabmodeEnter|. These will not be
+clobbered in case they are already used. The |:TabmodeEnter| command takes an optional
+argument specifying how many |vim-tabmode| commands to run (e.g., `:TabmodeEnter 1` would
 exit |vim-tabmode| after the first command). If the optional argument is `0`, which
 is the default, |vim-tabmode| runs until exit.
 >
 	" The following defaults can be customized in your .vimrc
 	map <leader><Tab> <Plug>TabmodeEnter
-	command! Tabmode :call tabmode#Enter()
+	command! TabmodeEnter :call tabmode#Enter()
 <
 
 Color Customization ~

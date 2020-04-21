@@ -16,41 +16,40 @@
 Use one of the following package managers:
 
 * [Vim8 packages][vim8pack]:
-	* `git clone https://github.com/https://gitlab.com/Iron_E/vim-tabmode ~/.vim/pack/plugins/start/vim-win`
+	* `git clone https://github.com/Iron_E/vim-tabmode ~/.vim/pack/plugins/start/vim-win`
 * [Vundle][vundle]:
-	* Add `Plugin 'https://gitlab.com/Iron_E/vim-tabmode'` to `~/.vimrc`
+	* Add `Plugin 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
 	* `:PluginInstall` or `$ vim +PluginInstall +qall`
 * [Pathogen][pathogen]:
-	* `git clone --depth=1 https://github.com/https://gitlab.com/Iron_E/vim-tabmode ~/.vim/bundle/vim-win`
+	* `git clone --depth=1 https://github.com/Iron_E/vim-tabmode ~/.vim/bundle/vim-win`
 * [vim-plug][vimplug]:
-	* Add `Plug 'https://gitlab.com/Iron_E/vim-tabmode'` to `~/.vimrc`
+	* Add `Plug 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
 	* `:PlugInstall` or `$ vim +PlugInstall +qall`
 * [dein.vim][dein]:
-	* Add `call dein#add('https://gitlab.com/Iron_E/vim-tabmode')` to `~/.vimrc`
+	* Add `call dein#add('https://github.com/Iron_E/vim-tabmode')` to `~/.vimrc`
 	* `:call dein#install()`
 * [NeoBundle][neobundle]:
-	* Add `NeoBundle 'https://gitlab.com/Iron_E/vim-tabmode'` to `~/.vimrc`
+	* Add `NeoBundle 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
 	* Re-open vim or execute `:source ~/.vimrc`
 
 # Usage
 
-Enter `vim-tabmode` with `<leader><Tab>` or `:Tabmode`.
+Enter `vim-tabmode` with `<leader><Tab>` or `:TabmodeEnter`.
 
-| Key         | Use                                                  | Modifiers                               |
-|:-----------:|:----------------------------------------------------:|:---------------------------------------:|
-| `w`/`h`/`j` | Tab left                                             | `<shift>` to move the current tab.      |
-| `b`/`k`/`l` | Tab right                                            | `<shift>` to move the current tab.      |
-| `<esc>`     | Leave `tabmode`                                      |                                         |
-| `?`         | Show help message                                    |                                         |
-| `a`         | Insert a tab and switch to it.                       |                                         |
-| `A`         | Append new tab at the end of tab list                |                                         |
-| `c`         | to the right with a single new tab.                  | Prepend number `N` to replace `N` tabs. |
-| `d`         | (__e.g.__ `2d`).                                     | Prepend number `N` to delete `N` tabs.  |
-| `dd`        | Delete the current tab.                              |                                         |
-| `D`         | Delete all tabs to the right of the current tab.     |                                         |
-| `i`/`I`     | Insert a tab and leave it empty.                     |                                         |
-| `s`         | Replace the current tab with a new tab.              |                                         |
-| `S`         | Replace all tabs to the right with a single new tab. |                                         |
+| Key         | Use                                              |
+|:-----------:|:------------------------------------------------:|
+| `<Esc>`     | Leave `tabmode`                                  |
+| `?`         | Show help message                                |
+| `^`/`0`     | Go to the beginning of the tab list.             |
+| `$`         | Go to the end of the tab list.                   |
+| `w`/`h`/`j` | Tab left                                         |
+| `b`/`k`/`l` | Tab right                                        |
+| `a`         | Append a tab and switch to it.                   |
+| `A`         | Append a tab to the end and switch to it.        |
+| `i`         | Prepend a tab and switch to it.                  |
+| `I`         | Prepend a tab to the beginning and switch to it. |
+| `d`         | Delete the current tab.                          |
+| `s`         | Replace the current tab with a new tab.          |
 
 See `:help win-usage` for additional details.
 
