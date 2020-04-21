@@ -6,7 +6,7 @@ let s:left_chars = ['b', 'j', 'h', "\<Left>"]
 let s:right_chars = ['w', 'k', 'l', "\<Right>"]
 let s:shift_left_chars = ['B', 'J', 'H', "\<S-Left>"]
 let s:shift_right_chars = ['W', 'K', 'L', "\<S-Right>"]
-let s:beginning = ['^', '$']
+let s:beginning = ['^', '0']
 
 function! s:Contains(list, element)
 	return index(a:list, a:element) !=# -1
