@@ -1,36 +1,31 @@
 # Description
 
-`vim-tabmode` is a Vim plugin for managing windows. Built-in functionality includes window selection, window buffer swapping, and window resizing. The plugin is extensible, allowing additional functionality to be added (see *Configuration* below).
+`vim-tabmode` is a plugin that provides a new mode in Neo/vim for managing tabs.
 
-<img src="screenshot.png?raw=true" width="800"/>
+Although it is recommended that splits and buffers are used over tabs when possible, there _are_ scenarios when tabs are necessary. This plugin hopes to make that easier.
 
 # Requirements
 
-* Full functionality
-	* `vim>=8.2` or `nvim>=0.4.0`
-* Limited functionality (no window labels)
-	* `vim>=8.1.1140`
+* [vim-libmodal](https://github.com/Iron-E/vim-libmodal)
 
 # Installation
 
-Use one of the following package managers:
+Either use `packadd` or any package manager.
 
-* [Vim8 packages][vim8pack]:
-	* `git clone https://github.com/Iron_E/vim-tabmode ~/.vim/pack/plugins/start/vim-win`
-* [Vundle][vundle]:
-	* Add `Plugin 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
-	* `:PluginInstall` or `$ vim +PluginInstall +qall`
-* [Pathogen][pathogen]:
-	* `git clone --depth=1 https://github.com/Iron_E/vim-tabmode ~/.vim/bundle/vim-win`
-* [vim-plug][vimplug]:
-	* Add `Plug 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
-	* `:PlugInstall` or `$ vim +PlugInstall +qall`
-* [dein.vim][dein]:
+## Examples
+
+* [dein.vim](https://github.com/Shougo/dein.vim):
 	* Add `call dein#add('https://github.com/Iron_E/vim-tabmode')` to `~/.vimrc`
 	* `:call dein#install()`
-* [NeoBundle][neobundle]:
+* [NeoBundle](https://github.com/Shougo/neobundle.vim):
 	* Add `NeoBundle 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
 	* Re-open vim or execute `:source ~/.vimrc`
+* [vim-plug](https://github.com/junegunn/vim-plug):
+	* Add `Plug 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
+	* `:PlugInstall` or `$ vim +PlugInstall +qall`
+* [Vundle](https://github.com/gmarik/vundle):
+	* Add `Plugin 'https://github.com/Iron_E/vim-tabmode'` to `~/.vimrc`
+	* `:PluginInstall` or `$ vim +PluginInstall +qall`
 
 # Usage
 
@@ -51,29 +46,12 @@ Enter `vim-tabmode` with `<leader><Tab>` or `:TabmodeEnter`.
 | `d`         | Delete the current tab.                          |
 | `s`         | Replace the current tab with a new tab.          |
 
-See `:help win-usage` for additional details.
+See `:help tabmode-usage` for additional details.
 
 # Documentation
 
 ```vim
-:help vim-tabmode
+:help tabmode
 ```
 
-The underlying markup is in [tabmode.txt](doc/win.txt).
-
-## Demo
-
-<img src="screencast.gif?raw=true" width="735"/>
-
-# License
-
-The source code has an [MIT License](https://en.wikipedia.org/wiki/MIT_License).
-
-See [LICENSE](LICENSE).
-
-[dein]: https://github.com/Shougo/dein.vim
-[neobundle]: https://github.com/Shougo/neobundle.vim
-[pathogen]: https://github.com/tpope/vim-pathogen
-[vim8pack]: http://vimhelp.appspot.com/repeat.txt.html#packages
-[vimplug]: https://github.com/junegunn/vim-plug
-[vundle]: https://github.com/gmarik/vundle
+The actual document for help is in [tabmode.txt](doc/win.txt).
