@@ -1,0 +1,7 @@
+TabmodeEnter	tabmode.txt	/*:TabmodeEnter*
+tabmode	tabmode.txt	/*tabmode*
+tabmode-configuration	tabmode.txt	/*tabmode-configuration*
+tabmode-requirements	tabmode.txt	/*tabmode-requirements*
+tabmode-usage	tabmode.txt	/*tabmode-usage*
+tabmode.txt	tabmode.txt	/*tabmode.txt*
+<Plug>TabmodeEnter	tabmode.txt	/*:TabmodeEnter*
