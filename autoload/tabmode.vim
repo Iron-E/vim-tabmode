@@ -128,6 +128,9 @@ function! tabmode#Enter(...)
 				call s:ShowError('vim-tabmode does not work with the command-line window')
 				break
 			endif
+			call s:Echo(l:prompt)
+			let l:char = s:GetChar()
+			let l:code = char2nr(l:char)
 			if s:Contains(s:esc_chars, l:char)
 				break
 			elseif l:char ==# '?'
