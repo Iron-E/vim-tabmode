@@ -10,10 +10,10 @@ if !hasmapto('<Plug>TabmodeEnter')
 	silent! map <unique> <leader><Tab> <Plug>TabmodeEnter
 endif
 noremap <unique> <silent> <script> <Plug>TabmodeEnter <SID>TabmodeEnter
-noremap <SID>TabmodeEnter :<C-u>call tabmode#Enter()<CR>
+noremap <SID>TabmodeEnter :<C-u>call tabmode#Provide()<CR>
 
 if !exists(':TabmodeEnter')
-	command -nargs=* TabmodeEnter :call tabmode#Enter(<f-args>)
+	command -nargs=* TabmodeEnter :call tabmode#Provide(<f-args>)
 endif
 
 " ************************************************************
