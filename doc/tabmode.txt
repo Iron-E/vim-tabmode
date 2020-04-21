@@ -1,7 +1,7 @@
 *tabmode.txt*          Plugin for managing tabs
 *tabmode*
 
-Forked From: vim-tabmode – https://github.com/dstein64/vim-tabmode
+Forked From: vim-win – https://github.com/dstein64/vim-win
 Original Author: Daniel Steinberg – https://www.dannyadam.com
 
 Author: Iron-E – https://github.com/Iron-E & https://gitlab.com/Iron_E
