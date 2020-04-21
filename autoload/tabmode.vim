@@ -138,7 +138,7 @@ function! tabmode#Enter(...)
 			if s:Contains(s:esc_chars, l:char)
 				break
 			elseif l:char ==# '?'
-				s:ShowHelp()
+				call s:ShowHelp()
 			elseif s:Contains(s:beginning, l:char)
 				execute 'tabfirst'
 			elseif l:char ==# '$'
