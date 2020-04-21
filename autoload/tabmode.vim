@@ -16,7 +16,7 @@ function! s:GetChar()
 	try
 		while 1
 			let l:char = getchar()
-			if v:mouse_tabmode ># 0 | continue | endif
+			if v:mouse_win ># 0 | continue | endif
 			if l:char ==# "\<CursorHold>" | continue | endif
 			break
 		endwhile
@@ -135,7 +135,6 @@ function! tabmode#Enter(...)
 			call s:Echo(l:prompt)
 			let l:char = s:GetChar()
 			let l:code = char2nr(l:char)
-			echom "CHARACTER IS " . l:char
 			if s:Contains(s:esc_chars, l:char)
 				break
 			elseif l:char ==# '?'
