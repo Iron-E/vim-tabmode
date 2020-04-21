@@ -111,7 +111,7 @@ endfunction
 
 " Runs the vim-tabmode command prompt loop. The function takes an optional
 " argument specifying how many times to run (runs until exiting by default).
-function! tabmode#Tabmode(...)
+function! tabmode#Enter(...)
 	if !s:CheckVersion() | return | endif
 	let l:label_winids = []
 	let l:prompt = [
