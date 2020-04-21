@@ -26,6 +26,16 @@ function! s:GetChar()
 	return l:char
 endfunction
 
+" Takes a list of lists. Each sublist is comprised of a highlight group name
+" and a corresponding string to echo.
+function! s:Echo(echo_list)
+	redraw
+	for [l:hlgroup, l:string] in a:echo_list
+		execute 'echohl ' .  l:hlgroup | echon l:string
+	endfor
+	echohl None
+endfunction
+
 function! s:ShowHelp()
 	help vim-tabmode
 endfunction
@@ -67,7 +77,7 @@ function! s:CheckVersion()
 		call s:ShowError(join(l:message_lines, "\n"))
 		return 0
 	endif
-	if !g:tabmode_disable_version_warning && !s:popupwin && !s:floatwin
+	if !s:popupwin && !s:floatwin
 		let l:message_lines = [
 		\	'Full vim-tabmode functionality requires vim>=8.2 or nvim>=0.4.0.',
 		\	'Use :version to check the current version.',
