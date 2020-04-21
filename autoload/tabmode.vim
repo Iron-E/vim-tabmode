@@ -41,7 +41,7 @@ function! s:Echo(echo_list)
 endfunction
 
 function! s:ShowHelp()
-	help 'tabmode.txt'
+	help tabmode-usage
 endfunction
 
 function! s:ShowError(message)
