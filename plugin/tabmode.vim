@@ -6,13 +6,13 @@ let g:loaded_tabmode = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !hasmapto('<Plug>TabmodeTabmode')
-	silent! map <unique> <leader><Tab> <Plug>TabmodeTabmode
+if !hasmapto('<Plug>TabmodeEnter')
+	silent! map <unique> <leader><Tab> <Plug>TabmodeEnter
 endif
-noremap <unique> <silent> <script> <Plug>TabmodeTabmode <SID>Tabmode
+noremap <unique> <silent> <script> <Plug>TabmodeEnter <SID>Tabmode
 noremap <SID>Tabmode :<C-u>call tabmode#Enter()<CR>
 
-if !exists(':Tabmode')
+if !exists(':TabmodeEnter')
 	command -nargs=* TabmodeEnter :call tabmode#Enter(<f-args>)
 endif
 
