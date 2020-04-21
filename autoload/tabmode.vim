@@ -144,13 +144,13 @@ function! tabmode#Enter(...)
 			elseif l:char ==# '$'
 				execute 'tabmove $'
 			elseif s:Contains(s:left_chars, l:char)
-				execute 'tabnext'
-			elseif s:Contains(s:shift_left_chars, l:char)
-				execute '+tabmove'
-			elseif s:Contains(s:right_chars, l:char)
 				execute 'tabprevious'
-			elseif s:Contains(s:shift_right_chars, l:char)
+			elseif s:Contains(s:shift_left_chars, l:char)
 				execute '-tabmove'
+			elseif s:Contains(s:right_chars, l:char)
+				execute 'tabnext'
+			elseif s:Contains(s:shift_right_chars, l:char)
+				execute '+tabmove'
 			elseif l:char ==# 'a'
 				execute 'tabnew'
 				execute 'tabnext'
