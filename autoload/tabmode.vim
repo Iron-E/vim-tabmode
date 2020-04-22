@@ -8,7 +8,7 @@ function! s:Contains(testChars, baseChar) abort
 	return index(a:testChars, a:baseChar) > -1
 endfunction
 
-function! s:Tabmode()
+function! tabmode#Provide()
 	if g:libmodalInput ==# '?'
 		help tabmode-usage
 	elseif s:Contains(s:beginning, g:libmodalInput)
@@ -38,8 +38,4 @@ function! s:Tabmode()
 		execute 'tabprevious'
 		execute 'tabclose'
 	endif
-endfunction
-
-function! tabmode#Provide()
-	call s:Tabmode()
 endfunction
