@@ -9,31 +9,31 @@ function! s:Contains(testChars, baseChar) abort
 endfunction
 
 function! tabmode#Callback() abort
-	if g:tabModeInput ==# '?'
+	if g:tabsModeInput ==# '?'
 		help tabmode-usage
-	elseif s:Contains(s:beginning, g:tabModeInput)
+	elseif s:Contains(s:beginning, g:tabsModeInput)
 		execute 'tabfirst'
-	elseif g:tabModeInput ==# '$'
+	elseif g:tabsModeInput ==# '$'
 		execute 'tablast'
-	elseif s:Contains(s:left_chars, g:tabModeInput)
+	elseif s:Contains(s:left_chars, g:tabsModeInput)
 		execute 'tabprevious'
-	elseif s:Contains(s:shift_left_chars, g:tabModeInput)
+	elseif s:Contains(s:shift_left_chars, g:tabsModeInput)
 		execute '-tabmove'
-	elseif s:Contains(s:right_chars, g:tabModeInput)
+	elseif s:Contains(s:right_chars, g:tabsModeInput)
 		execute 'tabnext'
-	elseif s:Contains(s:shift_right_chars, g:tabModeInput)
+	elseif s:Contains(s:shift_right_chars, g:tabsModeInput)
 		execute '+tabmove'
-	elseif g:tabModeInput ==# 'a'
+	elseif g:tabsModeInput ==# 'a'
 		execute 'tabnew'
-	elseif g:tabModeInput ==# 'A'
+	elseif g:tabsModeInput ==# 'A'
 		execute '$tabnew'
-	elseif g:tabModeInput ==# 'i'
+	elseif g:tabsModeInput ==# 'i'
 		execute '-tabnew'
-	elseif g:tabModeInput ==# 'I'
+	elseif g:tabsModeInput ==# 'I'
 		execute '0tabnew'
-	elseif g:tabModeInput ==# 'd'
+	elseif g:tabsModeInput ==# 'd'
 		execute 'tabclose'
-	elseif g:tabModeInput ==# 's'
+	elseif g:tabsModeInput ==# 's'
 		execute 'tabnew'
 		execute 'tabprevious'
 		execute 'tabclose'
