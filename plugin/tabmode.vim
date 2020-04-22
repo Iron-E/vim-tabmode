@@ -3,7 +3,7 @@ if exists('g:loaded_tabmode')
 endif
 let g:loaded_tabmode = 1
 
-source ./callback/tabmode.vim
+execute 'source' expand('<sfile>:p:h') . '/callback/tabmode.vim'
 
 let s:save_cpo = &cpo
 set cpo&vim
