@@ -9,11 +9,12 @@ set cpo&vim
 if !hasmapto('<Plug>TabmodeEnter')
 	silent! map <unique> <leader><Tab> <Plug>TabmodeEnter
 endif
+
 noremap <unique> <silent> <script> <Plug>TabmodeEnter <SID>TabmodeEnter
-noremap <SID>TabmodeEnter :<C-u>call tabmode#Provide()<CR>
+noremap <SID>TabmodeEnter :<C-u>call libmodal#Enter("TABS", funcref("tabmode#Provide"))
 
 if !exists(':TabmodeEnter')
-	command -nargs=* TabmodeEnter :call tabmode#Provide(<f-args>)
+	command! TabmodeEnter :call <Plug>TabmodeEnter
 endif
 
 " ************************************************************
