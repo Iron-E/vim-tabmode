@@ -8,7 +8,7 @@ function! s:Contains(testChars, baseChar) abort
 	return index(a:testChars, a:baseChar) > -1
 endfunction
 
-function! tabmode#Provide()
+function! tabmode#Callback() abort
 	if g:libmodalInput ==# '?'
 		help tabmode-usage
 	elseif s:Contains(s:beginning, g:libmodalInput)

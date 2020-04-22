@@ -3,6 +3,8 @@ if exists('g:loaded_tabmode')
 endif
 let g:loaded_tabmode = 1
 
+source ./libs/callback.vim
+
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -11,7 +13,7 @@ if !hasmapto('<Plug>TabmodeEnter')
 endif
 
 nnoremap <unique> <silent> <script> <Plug>TabmodeEnter <SID>TabmodeEnter
-nnoremap <SID>TabmodeEnter :<C-u>call libmodal#Enter('TABS', funcref('tabmode#Provide'))<CR>
+nnoremap <SID>TabmodeEnter :<C-u>call libmodal#Enter('TABS', funcref('tabmode#Callback'))<CR>
 
 if !exists(':TabmodeEnter')
 	command! TabmodeEnter :call <Plug>TabmodeEnter
