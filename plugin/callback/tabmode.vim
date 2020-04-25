@@ -13,8 +13,12 @@ function! tabmode#Callback() abort
 		help tabmode-usage
 	elseif s:Contains(s:beginning, g:tabsModeInput)
 		execute 'tabfirst'
+	elseif g:tabsModeInput ==# ')'
+		execute '0tabmove'
 	elseif g:tabsModeInput ==# '$'
 		execute 'tablast'
+	elseif g:tabsModeInput ==# '%'
+		execute '$tabmove'
 	elseif s:Contains(s:left_chars, g:tabsModeInput)
 		execute 'tabprevious'
 	elseif s:Contains(s:shift_left_chars, g:tabsModeInput)

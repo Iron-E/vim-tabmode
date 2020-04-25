@@ -31,20 +31,22 @@ Either use `packadd` or any package manager.
 
 Enter `vim-tabmode` with `<leader><Tab>` or `:TabmodeEnter`.
 
-| Key         | Use                                              |
-|:-----------:|:------------------------------------------------:|
-| `<Esc>`     | Leave `tabmode`                                  |
-| `?`         | Show help message                                |
-| `^`/`0`     | Go to the beginning of the tab list.             |
-| `$`         | Go to the end of the tab list.                   |
-| `b`/`j`/`h` | Tab left                                         |
-| `w`/`k`/`l` | Tab right                                        |
-| `a`         | Append a tab and switch to it.                   |
-| `A`         | Append a tab to the end and switch to it.        |
-| `i`         | Prepend a tab and switch to it.                  |
-| `I`         | Prepend a tab to the beginning and switch to it. |
-| `d`         | Delete the current tab.                          |
-| `s`         | Replace the current tab with a new tab.          |
+| Key         | Use                                                    |
+|:-----------:|:------------------------------------------------------:|
+| `<Esc>`     | Leave `tabmode`                                        |
+| `?`         | Show help message                                      |
+| `^`/`0`     | Go to the beginning of the tab list.                   |
+| `<S-0>`     | Move the current tab to the beginning of the tab list. |
+| `$`         | Go to the end of the tab list.                         |
+| `%`         | Move the current tab to the end of the tab list.       |
+| `b`/`j`/`h` | Tab left                                               |
+| `w`/`k`/`l` | Tab right                                              |
+| `a`         | Append a tab and switch to it.                         |
+| `A`         | Append a tab to the end and switch to it.              |
+| `i`         | Prepend a tab and switch to it.                        |
+| `I`         | Prepend a tab to the beginning and switch to it.       |
+| `d`         | Delete the current tab.                                |
+| `s`         | Replace the current tab with a new tab.                |
 
 See `:help tabmode-usage` for additional details.
 
