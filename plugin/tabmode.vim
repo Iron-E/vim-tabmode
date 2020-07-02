@@ -3,15 +3,9 @@ if exists('g:loaded_tabmode')
 endif
 let g:loaded_tabmode = 1
 
-execute 'source' expand('<sfile>:p:h') . '/callback/tabmode.vim'
-
-if !hasmapto('<Plug>TabmodeEnter')
-	silent! nmap <unique> <leader><Tab> <Plug>TabmodeEnter
-endif
-
-nnoremap <unique> <silent> <script> <Plug>TabmodeEnter <SID>TabmodeEnter
-nnoremap <SID>TabmodeEnter :<C-u>call libmodal#Enter('TABS', funcref('tabmode#Callback'))<CR>
+nnoremap <unique> <Plug>(TabmodeEnter) :<C-u>call tabmode#Enter()<CR>
+nmap <silent> <unique> <leader><Tab> <Plug>(TabmodeEnter)
 
 if !exists(':TabmodeEnter')
-	command! TabmodeEnter :call <Plug>TabmodeEnter
+	command! TabmodeEnter call tabmode#Enter()
 endif

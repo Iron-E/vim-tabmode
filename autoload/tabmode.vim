@@ -20,7 +20,7 @@ function! s:Contains(testChars, baseChar) abort
 	return index(a:testChars, a:baseChar) > -1
 endfunction
 
-function! tabmode#Callback() abort
+function! s:tabmode_callback() abort
 	    if s:Contains(s:go_to_beginning , g:tabsModeInput) | execute 'tabfirst'
 	elseif s:Contains(s:move_left       , g:tabsModeInput) | execute 'tabprevious'
 	elseif s:Contains(s:shift_left      , g:tabsModeInput) | execute '-tabmove'
@@ -28,4 +28,8 @@ function! tabmode#Callback() abort
 	elseif s:Contains(s:shift_right     , g:tabsModeInput) | execute '+tabmove'
 	elseif    has_key(s:combos          , g:tabsModeInput) | execute s:combos[g:tabsModeInput]
 	 endif
+endfunction
+
+function! tabmode#Enter() abort
+	call libmodal#Enter('TABS', funcref('s:tabmode_callback'))
 endfunction
